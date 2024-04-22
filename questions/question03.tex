@@ -1,0 +1,55 @@
+\section{Эквивалентные формулы. Основные тождества для элементарных функций алгебры логики. Двойственность и самодвойственность. Принцип двойственности}
+
+Запись $a_1 \circ a_2 \circ \ldots \circ a_n$, где операция $\circ$ ассоциативна и коммутативна, будет пониматься как условное обозначение для формулы $\circ(a_1, \circ(a_2, \ldots, \circ(a_{n - 1}, a_n)\ldots))$
+
+Приоритет операций: $\overline{\ast}, \cdot, \vee, \to, \oplus, \sim$.
+
+\begin{definition}
+    Формулы $\Phi_1$ и $\Phi_2$ в сигнатуре $\Sigma$ назовём \textit{эквивалентными}, если они определяют равные функции относительно объединения своих переменных.
+\end{definition}
+
+\begin{definition}
+    Слово $\Phi_1 = \Phi_2$, где $\Phi_1$ и $\Phi_2$ --- формулы, назовём \textit{тождеством}.
+\end{definition}
+
+\begin{remark}
+    Используя тождества, можно выполнять эквивалентные преобразования формул алгебры логики. Обоснованием такой возможности служит лемма о замене из курса математической логики.
+\end{remark}
+
+\textbf{Список основных тождеств:}
+\begin{enumerate}[nolistsep]
+    \item Ассоциативность и коммутативность операций $\cdot, \vee, \oplus, \sim$.
+    \item Дистрибутивности: $(a \vee b) \cdot c = a \cdot c \vee b \cdot c$, $(a \cdot b) \vee c = (a \vee c) \cdot (b \vee c)$, $(a \oplus b) \cdot c = a \cdot c \oplus b \cdot c$.
+    \item Тождества для отрицания: $\overline{a \vee b} = \overline{a} \cdot \overline{b}$, $\overline{a \cdot b} = \overline{a} \vee \overline{b}$ (формулы де Моргана), $\overline{\overline{a}} = a$, $a \cdot \overline{a} = 0$, $a \vee \overline{a} = 1$, $\overline{a \to b} = a\overline{b}$.
+    \item Тождества для идентичных операндов: $a \cdot a = a$, $a \vee a = a$, $a \to a = 1$, $a \sim a = 1$, $a \oplus a = 0$.
+    \item Тождества с константным операндом: $a \vee 0 = a$, $a \cdot 0 = 0$, $a \to 0 = \overline{a}$, $a \oplus 1 = \overline{a}$, $0 \to a = 1$.
+\end{enumerate}
+
+\begin{definition}
+    $\sum\limits_{i = 1}^na_i \vcentcolon = a_1 \oplus a_2 \oplus \ldots \oplus a_n$, $\prod\limits_{i = 1}^na_i \vcentcolon = a_1 \cdot a_2 \cdot \ldots \cdot a_n$, $\bigvee\limits_{i = 1}^na_i \vcentcolon = a_1 \vee a_2 \vee \ldots \vee a_n$.
+\end{definition}
+
+\begin{definition}
+    Функция $g(x_1, \ldots, x_n) \vcentcolon = \overline{f}(\overline{x}_1, \ldots, \overline{x}_n)$ называется \textit{двойственной} к функции $f(\widetilde{x}^n)$. Обозначение $g = f^\ast$.
+\end{definition}
+
+\begin{remark}
+    Согласно формулам де Моргана, $\&^\ast = \vee$.
+\end{remark}
+
+\begin{remark}
+    Очевидно, что $(f^\ast)^\ast = f$. Таблица для функции $f^\ast$ получается инвертированием всех битов таблицы для функции $f$.
+\end{remark}
+
+\begin{definition}
+    Если $f = f^\ast$, то функция $f$ называется \textit{самодвойственной}.
+\end{definition}
+
+\begin{theorem}[Принцип двойственности]
+    Пусть $\Sigma: S \to F$ --- сигнатура. Определим двойственную сигнатуру $\Sigma^\ast: S \to F^\ast$, равенством $\Sigma^\ast(s) \vcentcolon = \br{\Sigma(s)}^\ast$. Если формула $\Phi$ определяет над $\Sigma$ функцию $g$, то она же определяет над $\Sigma^\ast$ двойственную функцию $g^\ast$. Списки переменных совпадают.
+\end{theorem}
+
+\begin{proof}
+    Таблицы <<элементарных>> функций, обозначаемых символами из $S$, отличаются в двойственной сигнатуре от их таблиц в исходной сигнатуре лишь тем, что нули и единицы меняются местами. Однако последовательность вычислений для построения таблицы функции $g$ по исходным таблицами <<элементарных>> функций в обоих случаях одна и та же. Поэтому и результат вычислений для двойственной сигнатуры будет отличаться от результата для исходной сигнатуры лишь переобозначением нулей и единиц.
+\end{proof}
+

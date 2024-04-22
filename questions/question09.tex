@@ -1,0 +1,58 @@
+\section{Класс $M$, его замкнутость. Лемма о немонотонной функции}
+
+\begin{definition}
+    Пусть $\widetilde{\alpha} = (\alpha_1, \ldots, \alpha_n), \widetilde{\beta} = (\beta_1, \ldots, \beta_n) \in B_n$. Скажем, что набор $\widetilde{\alpha}$ \textit{не больше} набора $\widetilde{\beta}$ ($\widetilde{\alpha} \leqslant \widetilde{\beta}$), если $\alpha_i \leqslant \beta_i$ $\forall i = 1, \ldots, n$.
+\end{definition}
+
+\begin{remark}
+    Даное отношение является отношенем частичного порядка на $B_n$. Легко привести пару несравнимых наборов --- $(0, 1)$ и $(1, 0)$.
+\end{remark}
+
+\begin{definition}
+    $M \vcentcolon = \{f \in P_2 : \widetilde{\alpha} \leqslant \widetilde{\beta} \Rightarrow f(\widetilde{\alpha}) \leqslant f(\widetilde{\beta})\}$ --- множество \textit{монотонных функций}.
+\end{definition}
+
+\begin{proposal}
+    $M$ замкнут.
+\end{proposal}
+
+\begin{proof}
+    Проверим все операции:
+    \begin{enumerate}
+        \item \textbf{Подстановка переменных}. Пусть $f \in M \cap P_2^n$ и $g(x_1, \ldots, x_n) = f(x_{i_1}, \ldots, x_{i_n})$. Пусть $\widetilde{\alpha} = (\alpha_i)_{i = 1}^n$, $\widetilde{\beta} = (\beta_i)_{i = 1}^n$ --- элементы $B_n$, причём $\widetilde{\alpha} \leqslant \widetilde{\beta}$. Тогда $(\alpha_{i_1}, \ldots, \alpha_{i_n}) \leqslant (\beta_{i_1}, \ldots, \beta_{i_n})$, поэтому
+            \[
+                g(\alpha_1, \ldots, \alpha_n) = f(\alpha_{i_1}, \ldots, \alpha_{i_n}) \leqslant f(\beta_{i_1}, \ldots, \beta_{i_n}) = g(\beta_1, \ldots, \beta_n).
+            \]
+        \item \textbf{Подстановка функции}. Пусть $f \in M \cap P_2^n$, $g \in M \cap P_2^m$ и
+            \[
+                h(x_1, \ldots, x_{n + m - 1}) \vcentcolon = f(x_1, \ldots, x_{n - 1}, g(x_n, \ldots, x_{n + m - 1})).
+            \]
+            Пусть также $\widetilde{\alpha} = (\alpha_i), \widetilde{\beta} = (\beta_i) \in B_{n + m - 1}$. Тогда $g(\alpha_n, \ldots, \alpha_{n + m - 1}) \leqslant g(\beta_n, \ldots, \beta_{n + m - 1})$. Отсюда
+            \[
+                h(\widetilde{\alpha}) = f(\alpha_1, \ldots, \alpha_{n - 1}, g(\alpha_n, \ldots, \alpha_{n + m - 1})) \leqslant f(\beta_1, \ldots, \beta_{n - 1}, g(\beta_n, \ldots, \beta_{n + m - 1})) = h(\widetilde{\beta}).
+            \]
+        \item \textbf{Добавление и удаление фиктивных переменных}. Очевидно.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}[О немонотонной функции]
+    Если $f \in P_2^n \setminus M$, то из $f$, $0$ и $1$ суперпозициями можно получить $\overline{x}$.
+\end{lemma}
+
+\begin{proof}
+    Из $f \notin M$, найдутся наборы $\widetilde{\alpha}, \widetilde{\beta} \in B_n$ такие, что $\widetilde{\alpha} \leqslant \widetilde{\beta}$ и $f(\widetilde{\alpha}) = 1$, а $f(\widetilde{\beta}) = 0$. Неравенство $\widetilde{\alpha} \leqslant \widetilde{\beta}$ означает, что найдутся разряды $i_1, \ldots, i_k$ такие, что $\alpha_{i_1} = \ldots = \alpha_{i_k} = 0$, $\beta_{i_1} = \ldots = \beta_{i_k} = 1$ ($i_1 < \ldots < i_k$). При этом $\forall j \in \{1, \ldots, n\} \setminus \{i_1, \ldots, i_k\}$ выполняется $\alpha_j = \beta_j$. Рассмотрим последовательность наборов $\widetilde{\gamma}_0, \ldots\ \widetilde{\gamma}_k$. Каждый из этих наборов на позициях из $\{1, \ldots, n\} \setminus \{i_1, \ldots, i_k\}$ совпадает с набором $\widetilde{\alpha}$ (и набором $\widetilde{\beta}$). У набора $\widetilde{\gamma}_j$ разряды с номерами $i_1, \ldots, i_j$ равны $0$, а остальные --- $1$. Очевидно, что $\widetilde{\gamma}_0 = \widetilde{\alpha}$, а $\widetilde{\gamma}_k = \widetilde{\beta}$. Таким образом, $f(\widetilde{\gamma}_0) = 1$, $f(\widetilde{\gamma}_k) = 0$. Следовательно, существует минимальный индекс $j \in \{1, \ldots, k\}$, для которого $f(\widetilde{\gamma}_j) = 0$, а $f(\widetilde{\gamma}_{j - 1}) = 1$. Наборы $\widetilde{\gamma}_j$ и $\widetilde{\gamma}_{j - 1}$ отличаются единственным разрядом, имеющим номер $i_j$:
+    \[
+        \widetilde{\gamma}_{j - 1} = (\delta_1, \ldots, \delta_{i_j - 1}, 0, \delta_{i_j + 1}, \ldots, \delta_n)\quad\text{и}\quad\widetilde{\gamma}_j = (\delta_1, \ldots, \delta_{i_j - 1}, 1, \delta_{i_j + 1}, \ldots, \delta_n).
+    \]
+
+    Рассмотрим функцию $\varphi(x) \vcentcolon = f(\delta_1, \ldots, \delta_{i_j - 1}, x, \delta_{i_j + 1}, \ldots, \delta_n)$. Она получена суперпозициями из функций $f$, $0$ и $1$. При этом, как было отмечено ранее, $\varphi(0) = 1$ и $\varphi(1) = 0$. Значит, $\varphi(x) = \overline{x}$.
+\end{proof}
+
+\begin{proposal}
+    $\abs{M \cap P_2^n} \geqslant 2^{C_n^2}$.
+\end{proposal}
+
+\begin{proof}
+    Рассмотрим функции, принимающие на всех наборах, в которых меньше $\lfloor\frac{n}{2}\rfloor$ единиц, значение $0$, а на всех наборах в которых больше $\lfloor\frac{n}{2}\rfloor$ единиц, значение $1$. Очевидно, что все они монотонные, а их число равно $2^{C_n^2}$.
+\end{proof}
+

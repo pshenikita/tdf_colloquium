@@ -1,0 +1,59 @@
+\section{Представление функций алгебры логики посредством совершенных дизъюнктивных нормальных форм. Выразимость функций алгебры логики суперпозициями через дизъюнкцию, конъюнкцию и отрицание. Совершенная конъюнктивная нормальная форма}
+
+\begin{definition}
+    Пусть $x$ --- переменная, $\sigma \in E_2$. Тогда 
+    $
+    x^\sigma \vcentcolon =
+    \begin{cases}
+        x,&\text{если $\sigma = 1$},\\
+        \overline{x},&\text{если $\sigma = 0$}.
+    \end{cases}
+    $
+\end{definition}
+
+\begin{remark}
+    $x^\sigma = 1 \Leftrightarrow x = \sigma$.
+\end{remark}
+
+\begin{theorem}
+    $\forall f \in P_2^n$, $\forall m = 1, \ldots, n$ \[f(x_1, \ldots, x_n) = \bigvee\limits_{(\sigma_1, \ldots, \sigma_n) \in B_m}\prod\limits_{i = 1}^mx_i^{\sigma_i} \cdot f(\sigma_1, \ldots, \sigma_m, x_{m + 1}, \ldots, x_n).\]
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим произвольный двоичный набор $(\alpha_1, \ldots, \alpha_m)$. Если $(\sigma_1, \ldots, \sigma_m) \ne (\alpha_1, \ldots, \alpha_m)$, то найдётся $i \in \{1, \ldots, m\}$, для которого $\sigma_i \ne \alpha_i$. Тогда $\alpha_i^{\sigma_i} = 0$. Единственным членом дизъюнкции, влияющим на её значение является $(\sigma_1, \ldots, \sigma_m) = (\alpha_1, \ldots, \alpha_m)$. Он равен $\alpha_1^{\sigma_1}\ldots\alpha_m^{\sigma_m}f(\alpha_1, \ldots, \alpha_m, \alpha_{m + 1}, \alpha_n) = f(\alpha_1, \ldots, \alpha_m)$.
+\end{proof}
+
+Два важных частных случая теоремы:
+
+\begin{definition}
+    При $m = 1$ получаем, так называемое, \textit{разложение функции $f$ по переменной $x_n$}:
+    \[f(x_1, \ldots, x_n) = x_n \cdot f(x_1, \ldots, x_{n - 1}, 1) \vee \overline{x}_n \cdot f(x_1, \ldots, x_{n - 1}, 0).\]
+\end{definition}
+
+\begin{definition}
+    При $m = n$ получаем \textit{совершенную дизъюнктивную нормальную форму}:
+    \[f(x_1, \ldots, x_n) = \bigvee\limits_{(\sigma_1, \ldots, \sigma_n): f(\sigma_1, \ldots, \sigma_n) = 1}x_1^{\sigma_1}\ldots x_n^{\sigma_n}.\]
+\end{definition}
+
+\begin{theorem}
+    Каждая функция алгебры логики может быть получена суперпозициями из отрицания, конъюнкции и дизъюнкции.
+\end{theorem}
+
+\begin{proof}
+    Если функция не тождественно нулевая, то она реализуется с помощью СДНФ. Её можно рассматривать как формулу алгебры логики, построенную при помощи отрицаний, конъюнкция и дизъюнкций. Если функция тождественно нулевая, то её можно задать формулой $x_1 \cdot \overline{x}_1$, рассматриваемой относительно списка фиктивных переменных требуемой длины.
+\end{proof}
+
+Для произвольной функции $f \in P_2$ рассмотрим функцию $f^\ast$ и зададим её посредством СДНФ:
+\[
+    f^\ast(x_1, \ldots, x_n) = \bigvee_{(\sigma_1, \ldots, \sigma_n): f^\ast(\sigma_1, \ldots, \sigma_n) = 1}x_1^{\sigma_1} \ldots x_n^\sigma.
+\]
+
+Здесь предполагается, что $f^\ast \ne 0$ (т.\,е. $f \ne 1$). Согласно принципу двойственности, указанное равенство сохранится при переходе к двойственной сигнатуре в обеих частях:
+\[
+    f(x_1, \ldots, x_n) = \prod_{(\delta_1, \ldots, \delta_n): f(\delta_1, \ldots, \delta_n) = 0}(x_1^{\delta_1} \vee \ldots\vee x_n^{\delta_n}).
+\]
+
+\begin{definition}
+    Выражение в правой части называется \textit{совершенной конъюнктивной нормальной формой}.
+\end{definition}
+

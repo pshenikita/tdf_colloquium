@@ -1,0 +1,15 @@
+\section{Лемма о подмножестве $G_1 \times \ldots \times G_n$, на котором функция принимает $\ell$ значений}
+
+\begin{lemma}
+    Если $f(x_1, \ldots, x_n)$ --- существенная функция в $P_k$, принимающая хотя бы $\ell$ значений, где $\ell \geqslant 3$, то существуют подмножества $G_1, \ldots, G_n$ множества $E_k$ такие, что $1 \leqslant \abs{G_i} \leqslant \ell - 1$ $\forall i = 1, \ldots, n$, причём на множестве $G_1 \times \ldots \times G_n$ функция $f$ принимает хотя бы $\ell$ значений.
+\end{lemma}
+
+\begin{proof}
+    Без ограничения общности можно предположить, что $x_1$ --- существенная переменная функции $f$. По лемме о трёх наборах, существуют наборы $(\alpha, \alpha_2, \ldots, \alpha_n)$, $(\beta, \alpha_2, \ldots, \alpha_n)$, $(\alpha, \gamma_2, \ldots, \gamma_n)$, на которых $f$ принимает попарно различные значения. Рассмотрим наборы, $\delta_i \vcentcolon = (\delta_{i1}, \ldots, \delta_{in})$, на которых функция $f$ принимает остальные $\ell - 3$ значения. В качестве $G_j$ выберем множество $j$-х разрядов наборов $(\alpha, \alpha_2, \ldots, \alpha_n)$, $(\beta, \alpha_2, \ldots, \alpha_n)$, $(\alpha, \gamma_2, \ldots, \gamma_n)$, $\delta_1, \ldots, \delta_{\ell - 3}$. Как легко видеть, получим
+    \[
+        G_1 = \{\alpha, \beta, \delta_{11}, \ldots, \delta_{\ell - 3, 1}\},\quad G_2 = \{\alpha_2, \gamma_2, \delta_{12}, \ldots, \delta_{\ell - 3, 2}\},\quad \ldots,\quad G_n = \{\alpha_n, \gamma_n, \delta_{1n}, \ldots, \delta_{\ell - 3, n}\}.
+    \]
+
+    Таким образом, каждое из множеств $G_j$ непусто и имеет не более $\ell - 1$ элемента. По выбору множеств $G_j$, те указанные выше $\ell$ наборов, на которых функция $f$ принимает $\ell$ различных значений, принадлежат прямому произведению $G_1 \times \ldots \times G_n$.
+\end{proof}
+

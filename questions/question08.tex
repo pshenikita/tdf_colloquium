@@ -1,0 +1,49 @@
+\section{Класс $S$, его замкнутость. Лемма о несамодвойственой функции}
+
+\begin{definition}
+    $S \vcentcolon = \{f \in P_2 : f = f^\ast\}$.
+\end{definition}
+
+\begin{proposal}
+    $S$ замкнут.
+\end{proposal}
+
+\begin{proof}
+    Проверим для каждой операции:
+    \begin{enumerate}
+        \item \textbf{Подстановка переменых}. Пусть $f \in S \cap P_2^n$, а $g(x_1, \ldots, x_n) = f(x_{i_1}, \ldots, x_{i_n})$. Тогда
+            \[
+                \overline{g}(\overline{x}_1, \ldots, \overline{x}_n) = \overline{f}(\overline{x}_{i_1}, \ldots, \overline{x}_{i_n}) = f(x_{i_1}, \ldots, x_{i_n}) = g(x_1, \ldots, x_n).
+            \]
+        \item \textbf{Подстановка функции}. Пусть $f \in S \cap P_2^n$, $g \in S \cap P_2^m$, причём
+            \[
+                h(x_1, \ldots, x_{n + m - 1}) \vcentcolon = f(x_1, \ldots, x_{n - 1}, g(x_n, \ldots, x_{n + m - 1})),
+            \]
+            тогда
+            \begin{multline*}
+                \overline{h}(\overline{x}_1, \ldots, \overline{x}_{n + m - 1}) = \overline{f}(\overline{x}_1, \ldots, \overline{x}_{n - 1}, g(\overline{x}_n, \ldots, \overline{x}_{n + m - 1})) =\\ = f(x_1, \ldots, x_{n - 1}, g(x_n, \ldots, x_{n + m - 1})) = h(x_1, \ldots, x_{n + m - 1}).
+            \end{multline*}
+        \item \textbf{Добавление и удаление фиктивных переменных}. Очевидно.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}[О несамодвойственной функции]
+    Если $f \in P_2^n \setminus S$, то из $f$ и $\overline{x}$ суперпозициями можно получить константу.
+\end{lemma}
+
+\begin{proof}
+    Из $f \notin S$, найдётся $(\alpha_1, \ldots, \alpha_n) \in B_n$ такое, что $f(\alpha_1, \ldots, \alpha_n) = f(\overline{\alpha}_1, \ldots, \overline{\alpha}_n)$. Рассмотрим функции $\varphi_i(x) \vcentcolon = x^{\alpha_i}$ ($i = 1, \ldots, n$). Положим $\varphi(x) \vcentcolon = f(\varphi_1(x), \ldots, \varphi_n(x))$. Очевидно, функция $\varphi$ получена суперпозициями из $f$ и $\overline{x}$. Имеем:
+    \begin{multline*}
+        \varphi(0) = f(\varphi_1(0), \ldots, \varphi_n(0)) = f(0^{\alpha_1}, \ldots, 0^{\alpha_n}) = f(\overline{\alpha_1}, \ldots, \overline{\alpha_n}) = f(\alpha_1, \ldots, \alpha_n) =\\ = f(1^{\alpha_1}, \ldots, 1^{\alpha_n}) = f(\varphi_1(1), \ldots, \varphi_n(1)) = \varphi(1).
+    \end{multline*}
+    Значит, $\varphi$ --- константа.
+\end{proof}
+
+\begin{proposal}
+    $\abs{S \cap P_2^n} = 2^{2^{n - 1}}$.
+\end{proposal}
+
+\begin{proof}
+    Т.\,к. на инвертированных наборах функция $f \in S \cap P_2^n$ принимает инвертированное значение, то её можно задать, заполнив половину таблицы, т.\,е. она однозначно определяется на $2^n / 2 = 2^{n - 1}$ наборах.
+\end{proof}
+

@@ -1,0 +1,22 @@
+\section{Существенная функция в $P_k$. Лемма Яблонского о трёх наборах}
+
+\begin{definition}
+    Функция $f(x_1, \ldots, x_n) \in P_k$ называется \textit{существенной}, если она имеет более одной существенной переменной.
+\end{definition}
+
+\begin{lemma}[О трёх наборах]
+    Пусть $f(x_1, \ldots, x_n)$ --- существенная функция из $P_k$, принимающая $\ell$ значений, где $\ell \geqslant 3$. Пусть $x_1$ --- её существенная переменная. Тогда существуют наборы $(\alpha, \alpha_2, \ldots, \alpha_n)$, $(\beta, \alpha_2, \ldots, \alpha_n)$, $(\alpha, \gamma_2, \ldots, \gamma_n)$, на которых $f$ принимает три различных значения.
+\end{lemma}
+
+\begin{proof}
+    Т.\,к. $x_1$ --- существенная переменная, то существуют такие значения $\alpha_2, \ldots, \alpha_n$, что в следующем списке $S$:
+    \[
+        f(0, \alpha_2, \ldots, \alpha_n),\quad f(1, \alpha_2, \ldots, \alpha_n),\quad \ldots,\quad f(k - 1, \alpha_2, \ldots, \alpha_n)
+    \]
+    имеется более одного значения. Рассмотрим два случая:
+    \begin{enumerate}
+        \item В списке $S$ встречается меньше, чем $\ell$ значений. Тогда можно рассмотреть набор, на котором функция $f$ принимает значение, не встречающееся в списке $S$. Обозначим этот набор (к примеру) через $(\alpha, \gamma_2, \ldots, \gamma_n)$. Очевидно, что $f(\alpha, \alpha_2, \ldots, \alpha_n) \ne f(\gamma, \alpha_2, \ldots, \alpha_n)$. Выберем в качестве $\beta$ любое такое, чо $f(\beta, \alpha_2, \ldots, \alpha_n) \ne f(\alpha, \alpha_2, \ldots, \alpha_n)$. Т.\,к. в списке $S$ более одного значения, такое $\beta$ обязательно найдётся. Но $f(\alpha, \gamma_2, \ldots, \gamma_n)$ не входит в список $S$, а потому $f(\alpha, \gamma_2, \ldots, \gamma_n) \ne f(\beta, \alpha_1, \ldots, \alpha_n)$.
+        \item В списке $S$ встречаются все $\ell$ значений. Т.\,к. функция $f$ существенная, то существует такое $\alpha$, что $f(\alpha, x_2, \ldots, x_n)$ не является константой, иначе значение функции $f$ определялось бы значением переменной $x_1$. Следовательно, существуют такие значения $\gamma_2, \ldots, \gamma_n$, что $f(\alpha, \alpha_2, \ldots, \alpha_n) \ne f(\alpha, \gamma_2, \ldots, \gamma_n)$. Т.\,к. $\ell \geqslant 3$, то в списке $S$ имеется не менее трёх значений. Поэтому найдётся такое $\beta$, что $f(\beta, \alpha_2, \ldots, \alpha_n)$ отлично и от $f(\alpha, \alpha_2, \ldots, \alpha_n)$, и от $f(\alpha, \gamma_2, \ldots, \gamma_n)$.
+    \end{enumerate}
+\end{proof}
+

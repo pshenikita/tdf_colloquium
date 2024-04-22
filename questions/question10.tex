@@ -1,0 +1,43 @@
+\section{Класс $L$. Лемма о нелинейной функции}
+
+\begin{definition}
+    $L \vcentcolon = [\{1, x \oplus y\}]$ --- множество \textit{линейных} функций.
+\end{definition}
+
+\begin{proposal}
+    $L$ замкнут.
+\end{proposal}
+
+\begin{proof}
+    Следствие замкнутости замыкания.
+\end{proof}
+
+\begin{lemma}
+    Если $f \in P_2 \setminus L$, то из $f$, $0$ и $1$ и $\overline{x}$ суперпозициями можно получить функцию $x_1 \cdot x_2$.
+\end{lemma}
+
+\begin{proof}
+    Рассмотрим многочлен Жегалкина функции $f$:
+    \[
+        f(x_1, \ldots, x_n) = \sum_{\{i_1, \ldots, i_s\} \subseteq \{1, \ldots, n\}}a_{i_1\ldots i_s}x_{i_1}\ldots x_{i_s}.
+    \]
+    Т.\,к. $f \notin L$, то без ограничения общности можно считать, что в мономе степени больше $1$ есть переменные $x_1$ и $x_2$. Перегруппируем члены полинома:
+    \[
+        f(x_1, \ldots, x_n) = x_1x_2f_1(x_3, \ldots, x_n) \oplus x_1f_2(x_3, \ldots, x_n) \oplus x_2f_3(x_3, \ldots, x_n) \oplus f_4(x_3, \ldots, x_n).
+    \]
+    Т.\,к. полином Жегалкина единственный, то $f_1 \ne 0$. Значит, найдутся такие $\alpha_3, \ldots, \alpha_n \in E_2$, что $f_1(\alpha_3, \ldots, \alpha_n) = 1$. Рассмотрим функцию $\varphi(x_1, x_2) \vcentcolon = f(x_1, x_2, \alpha_3, \ldots, \alpha_n)$. Имеем $\varphi(x_1, x_2) = x_1x_2 \oplus \alpha x_1 \oplus \beta x_2 \oplus \gamma$ для каких-то $\alpha, \beta, \gamma \in E_2$. Избавимся от линейных членов:
+    \[
+        \varphi(x_1 \oplus \beta, x_2 \oplus \alpha) = (x_1 \oplus \beta)(x_2 \oplus \alpha) \oplus \alpha(x_1 \oplus \beta) \oplus \beta(x_2 \oplus \alpha) + \gamma = x_1x_2 + (\alpha\beta \oplus \gamma).
+    \]
+
+    Отсюда $x_1x_2 = \varphi(x_1 \oplus \beta, x_2 \oplus \alpha) \oplus (\alpha\beta \oplus \gamma)$. Теперь вспомним, что $x \oplus 1 = \overline{x}$, поэтому если $\alpha\beta \oplus \gamma = 1$, то получаем $x_1x_2 = \overline{\varphi(\ldots)}$. Итак, мы получили $x_1 \cdot x_2$ как суперпозицию $f$, $0$, $1$ и $\overline{x}$.
+\end{proof}
+
+\begin{proposal}
+    $\abs{L \cap P_2^n} = 2^{n + 1}$.
+\end{proposal}
+
+\begin{proof}
+    Любая $n$-местная линейная функция имеет вид $a_0 \oplus a_1x_1 \oplus \ldots \oplus a_nx_n$. Таким образом, у нас $n + 1$ неизвестных коэффициентов из $E_2$, число способов их выбрать равно $2^{n + 1}$.
+\end{proof}
+

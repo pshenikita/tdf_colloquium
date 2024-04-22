@@ -1,0 +1,43 @@
+\section{Классы $T_0$ и $T_1$, их замкнутость}
+
+\begin{definition}
+    $T_0 \vcentcolon = \{f \in P_2: f(0, \ldots, 0) = 0\}$ (<<сохраняют $0$>>).
+\end{definition}
+
+\begin{proposal}
+    Класс $T_0$ замкнут.
+\end{proposal}
+
+\begin{proof}
+    Проверим на всех операциях суперпозиции:
+    \begin{enumerate}
+        \item \textbf{Подстановка переменных}. Если $f \in T_0 \cap P_2^n$ и $g \in P_2^n$ получена из $f$ подстановокой переменных $g(x_1, \ldots, x_n) = f(x_{i_1}, \ldots, x_{i_n})$, то $g(0, \ldots, 0) = f(0, \ldots, 0) = 0$.
+        \item \textbf{Подстановка функции}. Если $f \in T_0 \cap P_2^n$, $g \in T_0 \cap P_2^m$ и
+            \[
+                h(x_1, \ldots, x_{n + m - 1}) \vcentcolon = f(x_1, \ldots, x_{n - 1}, g(x_n, \ldots, x_{n + m - 1})),
+            \]
+            то $h(0, \ldots, 0) = f(0, \ldots, 0, \underbrace{g(0, \ldots, 0)}_{0}) = 0$.
+        \item \textbf{Добавление и удаление фиктивных переменных}. Очевидно.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    $T_1 \vcentcolon = \{f \in P_2: f(1, \ldots, 1) = 1\}$ (<<сохраняют $1$>>).
+\end{definition}
+
+\begin{proposal}
+    Класс $T_1$ замкнут.
+\end{proposal}
+
+\begin{proof}
+    Аналогично $T_0$.
+\end{proof}
+
+\begin{proposal}
+    $\abs{T_0 \cap P_2^n} = \abs{T_1 \cap P_2^n} = 2^{2^n - 1}$.
+\end{proposal}
+
+\begin{proof}
+    Значение для одного набора уже задано, для остальных выбираются так же, как и раньше.
+\end{proof}
+
